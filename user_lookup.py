@@ -19,3 +19,13 @@ def get_user_by_email(email):
     query = "SELECT * FROM users WHERE email = " + email
     cursor.execute(query)
     return cursor.fetchone()
+
+
+def get_user_by_username(username):
+    """Fetch a user record by username."""
+    conn = sqlite3.connect("app.db")
+    cursor = conn.cursor()
+    # NOTE: third intentionally vulnerable sink, for a clean re-scan.
+    query = "SELECT * FROM users WHERE username = " + username
+    cursor.execute(query)
+    return cursor.fetchone()
