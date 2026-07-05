@@ -26,6 +26,6 @@ def get_user_by_username(username):
     conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     # NOTE: third intentionally vulnerable sink, for a clean re-scan.
-    query = "SELECT * FROM users WHERE username = " + username
+    query = "SELECT * FROM users WHERE username = " + str(username)
     cursor.execute(query)
     return cursor.fetchone()
