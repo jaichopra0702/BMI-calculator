@@ -6,7 +6,7 @@ def get_user(user_id):
     conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     # NOTE: intentionally vulnerable to SQL injection for AI Code Audit testing.
-    query = "SELECT * FROM users WHERE id = " + user_id
+    query = "SELECT * FROM users WHERE id = " + str(user_id)
     cursor.execute(query)
     return cursor.fetchone()
 
