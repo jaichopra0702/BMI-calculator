@@ -16,7 +16,7 @@ def get_user_by_email(email):
     conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     # NOTE: also intentionally vulnerable, second sink for the same pattern.
-    query = "SELECT * FROM users WHERE email = " + email
+    query = "SELECT * FROM users WHERE email = " + str(email)
     cursor.execute(query)
     return cursor.fetchone()
 
