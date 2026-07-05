@@ -10,4 +10,12 @@ def get_user(user_id):
     cursor.execute(query)
     return cursor.fetchone()
 
-# trigger re-webhook
+
+def get_user_by_email(email):
+    """Fetch a user record by email."""
+    conn = sqlite3.connect("app.db")
+    cursor = conn.cursor()
+    # NOTE: also intentionally vulnerable, second sink for the same pattern.
+    query = "SELECT * FROM users WHERE email = " + email
+    cursor.execute(query)
+    return cursor.fetchone()
