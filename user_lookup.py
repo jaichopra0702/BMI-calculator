@@ -29,3 +29,5 @@ def get_user_by_username(username):
     query = "SELECT * FROM users WHERE username = " + str(username)
     cursor.execute(query)
     return cursor.fetchone()
+
+# retrigger detection to backfill PR title/author
